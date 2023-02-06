@@ -1,4 +1,4 @@
-package funcionalJava;
+package funcionalJava.src.main.java.br.com.amandaqsena;
 
 public class Animal {
 

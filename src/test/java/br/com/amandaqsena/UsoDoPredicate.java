@@ -1,8 +1,10 @@
-package funcionalJava;
+package funcionalJava.src.test.java.br.com.amandaqsena;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+
+import funcionalJava.src.main.java.br.com.amandaqsena.Animal;
 
 public class UsoDoPredicate {
 

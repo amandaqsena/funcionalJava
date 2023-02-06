@@ -1,4 +1,4 @@
-package funcionalJava;
+package funcionalJava.src.test.java.br.com.amandaqsena;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import funcionalJava.src.main.java.br.com.amandaqsena.Pessoa;
+import funcionalJava.src.main.java.br.com.amandaqsena.Predicate;
 
 public class JavaStreamsExample {
     /**
@@ -94,10 +97,6 @@ public class JavaStreamsExample {
       // - service (Pessoa)
       // - repository (Entity)
 
-      List<String> pessoaDto = listPessoa.stream()
-                     .filter(pessoa -> pessoa.getIdade() >20)
-                     .map(Pessoa::getNome)
-                     .collect(Collectors.toList());
 
 
       // Supplier e a geração de conteúdos infinitos

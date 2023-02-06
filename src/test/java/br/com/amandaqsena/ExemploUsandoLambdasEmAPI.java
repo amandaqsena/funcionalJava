@@ -1,4 +1,4 @@
-package funcionalJava;
+package funcionalJava.src.test.java.br.com.amandaqsena;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,10 @@
-package funcionalJava;
+package funcionalJava.src.test.java.br.com.amandaqsena;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import funcionalJava.src.main.java.br.com.amandaqsena.Pessoa;
 /**
  * Dado uma lista de pessoas, 
  * filtre todas as pessoas que são adultas

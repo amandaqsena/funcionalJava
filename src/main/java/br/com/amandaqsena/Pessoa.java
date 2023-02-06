@@ -1,4 +1,4 @@
-package funcionalJava;
+package funcionalJava.src.main.java.br.com.amandaqsena;
 
 public class Pessoa {
     private String nome;
@@ -12,7 +12,7 @@ public class Pessoa {
     public String getNome(){
         return this.nome;
     }
-    Pessoa(String nome, int idade){
+    public Pessoa(String nome, int idade){
         this.nome = nome;
         this.idade = idade;
     }
