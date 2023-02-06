@@ -1,9 +1,9 @@
 package funcionalJava;
 
 public class Pessoa {
-    public String nome;
-    public int  idade;
-
+    private String nome;
+    private int  idade;
+    private String setor;
 
     public int getIdade(){
         return this.idade;
