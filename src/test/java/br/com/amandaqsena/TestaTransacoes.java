@@ -2,6 +2,10 @@ package funcionalJava.src.test.java.br.com.amandaqsena;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.Map;
+import java.util.function.Function;
 
 import funcionalJava.src.main.java.br.com.amandaqsena.Transacoes;
 
@@ -29,8 +33,36 @@ public class TestaTransacoes {
     );
 
     // pegar apenas os acima de 100
-    transacoes.stream().filter(transacao -> transacao.getValor() > 100).forEach(System.out::println);
-    }
+
+    System.out.println("Mostra acima de 100");
+    Predicate<Transacoes> acima100 = (tr) -> tr.getValor() > 100;
+    transacoes.stream().filter(transacao -> acima100.test(transacao)).forEach(System.out::println);
     
+    System.out.println("-----");
+    System.out.println("Mostra agrupados por categoria:");
+    System.out.println();
+    Map<String, List<Transacoes>> transacoesPorCategoria = transacoes.stream().collect(Collectors.groupingBy(Transacoes::getCategoria));
+    transacoesPorCategoria.entrySet().forEach(entry -> {
+        System.out.println(entry.getKey() + " " + entry.getValue());
+    });
+
+    System.out.println("-----");
+    System.out.println("Mostra agrupados por categoria (agrupando maior q 100 como importante):");
+    System.out.println();
+
+    Function<Transacoes,Transacoes> reagrupa = (tr) -> {
+        if(acima100.test(tr)){
+            tr.setCategoria("Importante");
+        }
+        return tr;
+    };
+
+    Map<String, List<Transacoes>> transacoesPorCategoriaImportante =
+            transacoes.stream().map(reagrupa)
+            .collect(Collectors.groupingBy(Transacoes::getCategoria));
+    transacoesPorCategoriaImportante.entrySet().forEach(entry -> {
+        System.out.println(entry.getKey() + " : " + entry.getValue());
+    });
+    }
     
 }
