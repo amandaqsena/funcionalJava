@@ -18,8 +18,7 @@ public class TestaTransacoes {
  * - collect()
  * - Collectors.groupingBy()
  * 
- * Agrupar lista de transacoes
- * por categoria e filtrar valores acima de 100
+ * Agrupar lista de transacoes por categoria e filtrar valores acima de 100
  * 
  * Bonus: valores acima de 100, categorizar como importante
  */
@@ -60,9 +59,25 @@ public class TestaTransacoes {
     Map<String, List<Transacoes>> transacoesPorCategoriaImportante =
             transacoes.stream().map(reagrupa)
             .collect(Collectors.groupingBy(Transacoes::getCategoria));
+
     transacoesPorCategoriaImportante.entrySet().forEach(entry -> {
         System.out.println(entry.getKey() + " : " + entry.getValue());
     });
+    
+    // Colocando dois argumentos no groupingBy
+
+    Map<String, List<String>> stringDeAgrupamento =
+            transacoes.stream().map(reagrupa)
+            .collect(Collectors.groupingBy(Transacoes::getCategoria,
+            Collectors.mapping(Transacoes::getDescricao, Collectors.toList())));
+
+    stringDeAgrupamento.entrySet().forEach(entry -> {
+        System.out.println(entry.getKey() + " : " + entry.getValue());
+    });
     }
+
+   
+
+    
     
 }
