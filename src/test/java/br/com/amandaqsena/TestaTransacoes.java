@@ -74,10 +74,22 @@ public class TestaTransacoes {
     stringDeAgrupamento.entrySet().forEach(entry -> {
         System.out.println(entry.getKey() + " : " + entry.getValue());
     });
-    }
 
-   
+    List<Integer> lista = Arrays.asList(1,2,3,4,5,6);
 
-    
-    
+    lista.stream()
+        .collect(Collectors.groupingBy( n-> n%2==0?"pares":"ímpares"))
+        .entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        });
+
+    lista.stream()
+        .collect(Collectors.groupingBy( n-> n%2==0?"pares":"ímpares", 
+        Collectors.summingInt(i->i)))
+        .entrySet().forEach(entry -> {
+            System.out.println("Soma de " + entry.getKey() + " : " 
+            + entry.getValue());
+        });
+
+    }    
 }

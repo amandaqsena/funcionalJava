@@ -12,8 +12,18 @@ public class Pessoa {
     public String getNome(){
         return this.nome;
     }
+
+    public String getSetor(){
+        return this.setor;
+    }
     public Pessoa(String nome, int idade){
         this.nome = nome;
+        this.idade = idade;
+    }
+
+    public Pessoa(String nome, String setor, int idade){
+        this.nome = nome;
+        this.setor = setor;
         this.idade = idade;
     }
 
